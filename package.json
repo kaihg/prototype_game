@@ -4,7 +4,13 @@
   "description": "The prototype of a evolution game",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-mocha --paths tests/**/*.test.ts",
+    "build": "webpack",
+    "start": "webpack --watch & live-server --port=8085"
+  },
+  "repository": {
+    "url": "https://github.com/kaihg/kaihg.github.io",
+    "type": "github"
   },
   "author": "KK",
   "license": "ISC",
@@ -12,6 +18,20 @@
     "phaser": "^3.23.0"
   },
   "devDependencies": {
-    "typescript": "^3.9.3"
+    "@types/chai": "^4.2.11",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.11",
+    "chai": "^4.2.0",
+    "live-server": "^1.2.1",
+    "mocha": "^7.2.0",
+    "nyc": "^15.1.0",
+    "ts-loader": "^7.0.5",
+    "ts-mocha": "^7.0.0",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
