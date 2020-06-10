@@ -33,7 +33,8 @@ jobs:
         uses: actions/setup-node@v1.4.2
 
       # Install packages and build
-      - run: npm install --production
+      - run: npm install
+      - run: npm run test
       - run: npm run build
       - name: collect all need into /public
         run: |
