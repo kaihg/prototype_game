@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+name: Deploy flow
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  Fiebase-deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Cache
+        uses: actions/cache@v2.0.0
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: ./node_modules
+          # An explicit key for restoring and saving the cache
+          key: node_modules
+          # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
+          restore-keys: # optional
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.2
+
+      # Install packages and build
+      - run: npm install --production
+      - run: npm run build
+      - name: collect all need into /public
+        run: |
+          cp index.html ./public
+          cp -r assets ./public/
+          cp -r dist ./public/
+
+      - uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
