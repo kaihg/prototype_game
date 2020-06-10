@@ -1,5 +1,6 @@
 import "phaser";
-import { Natural } from '@model/natural'
+import { Natural } from '@model/natural';
+import { LoadingScene } from './view/loadingScene'
 
 const config: Phaser.Types.Core.GameConfig = {
     title: "Prototype",
@@ -7,15 +8,8 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 600,
     parent: "game",
     backgroundColor: "#18216D",
-    scene: {
-        preload: loadImages
-    }
+    scene: [LoadingScene]
 };
-
-function loadImages() {
-    console.log('start load images')
-    
-}
 
 export class PrototypeGame extends Phaser.Game {
     constructor(config: Phaser.Types.Core.GameConfig) {
