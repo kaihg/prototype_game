@@ -1,5 +1,4 @@
 import "phaser";
-import { Natural } from '@model/natural';
 import { LoadingScene } from './view/loadingScene'
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -18,5 +17,5 @@ export class PrototypeGame extends Phaser.Game {
 }
 
 window.onload = () => {
-    var game = new PrototypeGame(config);
+    let game = new PrototypeGame(config);
 };
