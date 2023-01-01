@@ -15,7 +15,7 @@
   "author": "KK",
   "license": "ISC",
   "dependencies": {
-    "phaser": "^3.23.0"
+    "phaser": "^3.55.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
@@ -26,11 +26,11 @@
     "live-server": "^1.2.1",
     "mocha": "^7.2.0",
     "nyc": "^15.1.0",
-    "ts-loader": "^7.0.5",
+    "ts-loader": "^9.4.2",
     "ts-mocha": "^7.0.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }
